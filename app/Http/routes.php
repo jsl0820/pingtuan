@@ -19,6 +19,7 @@ Route::get('test','TestController@index');
 
 Route::get('index','IndexController@index');
 
+Route::get('goods','IndexController@goods');
 
 /*
 |--------------------------------------------------------------------------

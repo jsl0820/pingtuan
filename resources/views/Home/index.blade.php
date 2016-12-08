@@ -1,27 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta name="Generator" content="haohaios v1.0" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<meta name="Keywords" content="一聚就惠" />
-<meta name="Description" content="昊海拼团，优质水果新鲜直供，大家一起来玩吧！!" />
-<title>昊海拼团  11-1【测试-网站演示专用】</title>
-<link rel="shortcut icon" href="favicon.ico" />
-
-<link href="../static/Home/css/haohaios.css" rel="stylesheet" />
-<link href="../static/Home/css/font-awesome.min.css" rel="stylesheet" />
-<link href="../static/Home/css/swiper.min.css" rel="stylesheet" >
-<link href="../static/Home/css/notification.css" rel="stylesheet" >
-
-<script type="text/javascript" src="../static/Home/js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="../static/Home/js/swiper.min.js"></script>
-<script type="text/javascript" src="../static/Home/js/haohaios.js"></script>
-<script type="text/javascript" src="../static/Home/js/notification.js" ></script>
-</head>
-
-
-
+@include('Home.header')
 <body>
 <div id="loading">
 <!-- 	<include file="Share:loading"/> -->
@@ -60,7 +37,7 @@
             <div ms-repeat-item="goods_list">
 			@foreach($goods as $key => $vo)
                 <div class="tuan_g" >
-                    <a href="##">
+                    <a href="{{URL::action('IndexController@goods',['goodsid'=>$vo->goods_id])}}">
                         <div class="tuan_g_img">
                             <img src="../{{$vo->little_img}}">
 							@if($vo->goods_number < 1)
@@ -101,14 +78,7 @@
     </section>
  
 </div>
-<footer class="footer">
-    <ul>
-    	<li><a href="{wghd::U('Share/index')}" class="nav-controller <eq name='ACTION_NAME' value='index'>active</eq>"><i class="fa fa-home"></i>首页</a></li>
-        <li><a href="{wghd::U('Share/rank',array('act'=>'is_hot'))}" class="nav-controller <eq name='ACTION_NAME' value='rank'>active</eq>"><i class="fa fa-trophy"></i>热榜</a></li>
-        <li><a href="{wghd::U('Share/cats')}" class="nav-controller <eq name='ACTION_NAME' value='cats'>active</eq>"><i class="fa fa-list"></i>分类</a></li>
-        <li><a href="{wghd::U('Share/user')}" class="nav-controller <eq name='ACTION_NAME' value='user'>active</eq>"><i class="fa fa-user"></i>个人中心</a></li>
-    </ul>
-</footer>
+@include('Home.footer')
 <script>
 	window.onload=function(){
 		$('#loading').remove();

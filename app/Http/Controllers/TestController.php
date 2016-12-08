@@ -6,15 +6,14 @@ class TestController extends Controller{
 
 	public function index (){
 
-		$cats  = DB::table('category')
-			   ->where('parent_id','=','0')
-			   ->get();
-
+		//@$goodsid = $_GET['goodsid'];
+		$goodsid = 37;
 		$goods = DB::table('goods')
-		       ->where('is_on_sale','=','1')
-		       ->get();  
-        
-		return view('Home.test',compact('goods','cats'));
+			   ->where('goods_id','=',$goodsid)
+			   ->first();	
+		//dump($goods);
+		//exit();	   
+		return view ('Home.test',compact('goods'));
 
 	}
 }

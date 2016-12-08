@@ -19,9 +19,16 @@ class IndexController extends Controller{
 
 	}
 
-	public function detail(){
+	public function goods(){
 
-		
+		@$goodsid = $_GET['goodsid'];
+		//$goodsid = 37;
+		$goods = DB::table('goods')
+			   ->where('goods_id','=',$goodsid)
+			   ->first();	
+		//dump($goods);
+		//exit();	   
+		return view ('Home.goods',compact('goods'));
 	}
 }
 
